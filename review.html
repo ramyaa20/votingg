@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Brush+Script+MT&display=swap">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: left;
+            background-image: url('vote5.png');
+            background-size: cover;
+            body {
+    background-attachment: fixed;
+}
+        }
+
+        header {
+            background-color: #B37A4C;
+            color: #fff;
+            padding: 2px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        header img {
+            max-width: 100px;
+            max-height: 100px;
+            margin: 0 10px 10px 0;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+	    margin-top: 30px;
+        }
+
+        .profile-icon {
+            cursor: pointer;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        .profile-icon span {
+            margin-right: 5px;
+        }
+
+       .logout-option {
+            display: none;
+            position: absolute;
+            top: 80px; /* Adjusted position */
+            right: 20px;
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        .logout-option a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 8px;
+        }
+
+        h1 {
+            margin-top: 90px;
+            margin-bottom: 1px;
+            color: #fff;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 40px;
+        }
+h2 {
+            text-align: center; /* Align the h3 to the center */
+            
+    	    color:#fff;
+        }
+
+form {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            /* Allow the items to wrap to the next line */
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            width: 40%;
+        }
+
+        .candidate,
+	.candidate2,
+	.candidate3
+         {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            justify-content: flex-start;
+	padding-right:-100px;
+        }
+
+        .candidate3 {
+            display: inline-start;
+            /* Set the direction to column for the "candidate3" class */
+            justify-content: flex-start;
+            margin-left: -300px;
+            margin-right: 0px;
+            text-align: left;
+        }
+
+        .candidate-profile {
+            max-height: 130px;
+            /* Set a maximum height for the logos */
+            margin-right: 50px;
+            /* Add some spacing between the logo and text */
+        }
+.candidate3-profile {
+            max-height: 130px;
+            /* Set a maximum height for the logos */
+            margin-right: 50px;
+            /* Add some spacing between the logo and text */
+        }
+
+
+
+        label span {
+            padding: 10px;
+            border: 1px solid;
+            border-radius: 7px;
+            flex-grow: 1;
+             background-image: url('cont.png');
+            background-size: cover;
+            background-position: center;
+    		line-height: 1.5;
+        }
+
+     
+
+
+.container2 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 80%; /* Adjusted width */
+    text-align: center;
+    padding: 10px 0;
+    margin-top: -10px;
+    margin-left: 10%; /* Adjusted margin-left */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+
+        .container2 button {
+            background-color: #B37A4C;
+            color: #fff;
+            border: coral;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container2 button:hover {
+            background-color: #8B4513;
+        }
+/* Notification box styles */
+        .notification-container {
+            display: none;
+            position: fixed;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            padding: 15px;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .notification-container p {
+            margin: 0;
+        }
+
+        .notification-container button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #80471C;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+footer {
+            background-color: #B37A4C;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .topnav {
+            margin-top: 40px;
+            text-align: center;
+            margin-left:680px;
+        }
+
+        .topnav a {
+            display: inline-block;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .topnav-right {
+            float: left;
+        }
+	.topnav a.active {
+    background-color: #8B4513; /* Set the background color to your desired glow color */
+    color: #fff; /* Set the text color to your desired glow color */
+    box-shadow: 0 0 10px #8B4513, 0 0 20px #8B4513, 0 0 30px #8B4513; /* Glow effect */
+    transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
+}
+
+
+ </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="logoumt.png" alt="Logo">
+
+        <div class="topnav">
+            <div class="topnav-right">
+                <a href="homepage.html">Home</a>
+                <a href="register.html">Registration</a>
+                <a href="review.html" class="active">Review</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+
+        <div class="profile-container">
+            <div class="profile-icon" onclick="toggleLogoutOption()">
+                <span>&#128100;</span>
+                <span>&#9660;</span>
+            </div>
+            <div class="logout-option" id="logoutOption">
+                <a href="login.html">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <h1>Vote Casting</h1>
+	<h2>REVIEW VOTING</h2>
+
+ <form>
+        <label>
+            <div class="candidate">
+                <img class="candidate-profile" src="calon1.jpg" alt="profil">
+                <span><b>NAME: AZRAN SHABIL SALLEH<br>CANDIDATE NO: C13
+		<br>FACULTY:FTKKI<br>MANIFESTO: MENJAGA KEBAJIKAN DAN KESELAMATAN PELAJAR LUAR KOLEJ</b></span>
+            </div>
+        </label>
+
+        <label>
+            <div class="candidate2">
+                <img class="candidate-profile" src="calon3.jpg" alt="profil">
+                <span><b>NAME: NURIN SYAUQINA BINTI KAMARUL ARIFIN<br>CANDIDATE
+                    NO:S67591<br>FACULTY:FTKKI<br>MANIFESTO:MEMUPUK SIKAP KEPIMPINAN</b></span>
+            </div>
+        </label>
+    </form>
+    <form>
+        <label>
+            <div class="candidate3">
+                <img class="candidate-profile" src="calon2.jpg" alt="profil">
+                <span><b>NAME: MOHAMMAD AIMAN HAKIM BIN ARMAN<br>CANDIDATE
+                    NO:S67591<br>FACULTY:FTKKI<br>MANIFESTO:MENYEDIAKAN WAKAF BOOK</b> </span>
+            </div>
+        </label>
+    </form>
+
+    <div class="container2">
+         <button type="button" onclick="submit()">Submit</button>
+    </div>
+	
+    </div>
+
+    
+    <div id="submitNotification" class="notification-container">
+        <p>Submit Successfully!</p>
+        <button onclick="closeNotification()">OK</button>
+    </div>
+
+ <footer>
+        &copy; 2023 MarFaRa Company
+    </footer>
+
+<script>
+        function toggleLogoutOption() {
+            var logoutOption = document.getElementById("logoutOption");
+            logoutOption.style.display = (logoutOption.style.display === "block") ? "none" : "block";
+        }
+	function closeNotification() {
+    var notification = document.getElementById('submitNotification');
+    notification.style.display = 'none';
+
+    // Refresh the page
+    window.location.href = window.location.href;
+}
+
+        function submit() {
+            // Your registration logic here
+
+            // Show the registration notification
+            var notification = document.getElementById('submitNotification');
+            notification.style.display = 'block';
+        }
+	document.addEventListener("DOMContentLoaded", function () {
+    var currentPage = window.location.pathname.split("/").pop(); // Get the current page name
+
+    // Remove "active" class from all links initially
+    var navLinks = document.querySelectorAll(".topnav a");
+    navLinks.forEach(function (link) {
+        link.classList.remove("active");
+    });
+
+    // Add "active" class to the current page link
+    var currentLink = document.querySelector('.topnav a[href="' + currentPage + '"]');
+    if (currentLink) {
+        currentLink.classList.add("active");
+    }
+});
+
+</script>
+</body>
+
+</html>
